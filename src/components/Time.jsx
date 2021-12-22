@@ -19,7 +19,7 @@ function Time() {
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
-      // console.log(new Date(Date(1640163600)));
+      console.log(new Date(Date(1640174917)));
       if (date.getHours() > 12) {
         let newHours = date.getHours() - 12;
         setHours(newHours);
