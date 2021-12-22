@@ -15,7 +15,7 @@ const StyledHomePage = styled.div`
   height: 100vh;
 `;
 const HomePage = () => {
-  const [city, setCity] = useState("cupertino");
+  const [city, setCity] = useState("london");
   const [weather, setWeather] = useState("");
   const [dailyweather, setDailyWeather] = useState("");
 
@@ -23,15 +23,16 @@ const HomePage = () => {
     e.preventDefault();
 
     getWeather();
-    setCity("");
   };
   const getWeather = async () => {
     const res = await axios({
       url: `http://api.openweathermap.org/data/2.5/weather?appid=077ffe45ed0caa4da2a7b6e0170e1243&q=${city}&units=metric`,
+      // url: `http://api.openweathermap.org/data/2.5/weather?appid=077ffe45ed0caa4da2a7b6e0170e1243&q=${city}&units=metric`,
       method: "get",
     });
     setWeather(res.data);
     getDaily(res.data);
+    setCity("");
   };
   const getDaily = async (data) => {
     const res = await axios({
